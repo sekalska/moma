@@ -1,0 +1,934 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://github.com/damares/moma"
+     xml:base="https://github.com/damares/moma"
+     xmlns:cc="https://creativecommons.org/ns#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:owl-time="https://www.w3.org/TR/owl-time/#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:uo="http://purl.obolibrary.org/obo/uo#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/#">
+    <owl:Ontology rdf:about="https://github.com/damares/moma">
+        <owl:versionIRI rdf:resource="https://github.com/damares/moma"/>
+        <terms:license rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://purl.org/NET/rdflicense/cc-zero1.0</terms:license>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license">
+        <rdfs:comment></rdfs:comment>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://www.w3.org/TR/owl-time/#time:year -->
+
+    <rdfs:Datatype rdf:about="https://www.w3.org/TR/owl-time/#time:year"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://github.com/damares/moma#acquire -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#acquire">
+        <owl:inverseOf rdf:resource="https://github.com/damares/moma#is_acquired_by"/>
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Department"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Acquirement"/>
+        <rdfs:comment>Represent the acquirement that is made by a department.</rdfs:comment>
+        <rdfs:label>acquire</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#acquired_artwork -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#acquired_artwork">
+        <owl:inverseOf rdf:resource="https://github.com/damares/moma#is_acquired_in"/>
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Acquirement"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Artwork"/>
+        <rdfs:comment>It represents that an artwork is an acquirement.</rdfs:comment>
+        <rdfs:label>acquired_artwork</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#artist_has_link -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#artist_has_link">
+        <owl:inverseOf rdf:resource="https://github.com/damares/moma#has_info_about_artist"/>
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Artist"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Weblink"/>
+        <rdfs:comment>An artist has a link to a webpage with additional information about himself.</rdfs:comment>
+        <rdfs:label>artist_has_link</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#artwork_has_link -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#artwork_has_link">
+        <owl:inverseOf rdf:resource="https://github.com/damares/moma#has_info_about_artwork"/>
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Artwork"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Weblink"/>
+        <rdfs:comment>An artwork has a link to a web page with more information about it.</rdfs:comment>
+        <rdfs:label>artwork_has_link</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#belongs_to -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#belongs_to">
+        <owl:inverseOf rdf:resource="https://github.com/damares/moma#groups"/>
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Artwork"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Movement"/>
+        <rdfs:comment>An artwork belongs to a movement.</rdfs:comment>
+        <rdfs:label>belongs_to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#categorize -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#categorize">
+        <owl:inverseOf rdf:resource="https://github.com/damares/moma#has_category"/>
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Artwork_Category"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Artwork"/>
+        <rdfs:comment>Each category categorizes an artwork.</rdfs:comment>
+        <rdfs:label>categorize</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#contains -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#contains">
+        <owl:inverseOf rdf:resource="https://github.com/damares/moma#located_in"/>
+        <rdfs:domain rdf:resource="http://www.fao.org/countryprofiles/geoinfo/geopolitical/resource/Territory"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#City"/>
+        <rdfs:comment>A territory (country) contains cities.</rdfs:comment>
+        <rdfs:label>contains</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#created_by -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#created_by">
+        <owl:inverseOf rdf:resource="https://github.com/damares/moma#has_artwork"/>
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Artwork"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Artist"/>
+        <rdfs:comment>An artwork is created by an artist.</rdfs:comment>
+        <rdfs:label>created_by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#develops -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#develops">
+        <owl:inverseOf rdf:resource="https://github.com/damares/moma#occurs_in"/>
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Era"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Movement"/>
+        <rdfs:comment>An era develops a movement.</rdfs:comment>
+        <rdfs:label>develops</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#gives_currency -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#gives_currency">
+        <owl:inverseOf rdf:resource="https://github.com/damares/moma#has_currency"/>
+        <rdfs:domain rdf:resource="http://www.fao.org/countryprofiles/geoinfo/geopolitical/resource/Territory"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Entrance_Fee"/>
+        <rdfs:comment>Depending on the territory, the entrance fee has a different currency.</rdfs:comment>
+        <rdfs:label>gives_currency</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#gives_medium -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#gives_medium">
+        <owl:inverseOf rdf:resource="https://github.com/damares/moma#has_medium"/>
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Medium"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Artwork_Category"/>
+        <rdfs:comment>The medium used to create an artwork aims to define the artwork category.</rdfs:comment>
+        <rdfs:label>gives_medium</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#gives_nationality -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#gives_nationality">
+        <owl:inverseOf rdf:resource="https://github.com/damares/moma#has_nationality"/>
+        <rdfs:domain rdf:resource="http://www.fao.org/countryprofiles/geoinfo/geopolitical/resource/Territory"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:comment>The territory (the birthplace) gives a nationationality to a Person.</rdfs:comment>
+        <rdfs:label>gives_nationality</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#gives_type -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#gives_type">
+        <owl:inverseOf rdf:resource="https://github.com/damares/moma#has_type"/>
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Museum_Type"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Museum"/>
+        <rdfs:comment>A museum type is assigned to a museum.</rdfs:comment>
+        <rdfs:label>gives_type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#gives_type_musseum -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#gives_type_musseum">
+        <owl:inverseOf rdf:resource="https://github.com/damares/moma#has_collection"/>
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Collection"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Museum_Type"/>
+        <rdfs:comment>A collection belongs to a museum which is categorized by types.</rdfs:comment>
+        <rdfs:label>gives_type_museum</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#groups -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#groups">
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Movement"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Artwork"/>
+        <rdfs:comment>A movement groups artworks.</rdfs:comment>
+        <rdfs:label>groups</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#has_artwork -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#has_artwork">
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Artist"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Artwork"/>
+        <rdfs:comment>An artist has an artwork.</rdfs:comment>
+        <rdfs:label>has_artwork</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#has_birthplace -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#has_birthplace">
+        <owl:inverseOf rdf:resource="https://github.com/damares/moma#is_birthplace_of"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:range rdf:resource="http://www.fao.org/countryprofiles/geoinfo/geopolitical/resource/Territory"/>
+        <rdfs:comment>A person is born in a specific territory (birthplace).</rdfs:comment>
+        <rdfs:label>has_birthplace</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#has_category -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#has_category">
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Artwork"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Artwork_Category"/>
+        <rdfs:comment>An artwork is categorized in an artwork category.</rdfs:comment>
+        <rdfs:label>has_category</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#has_collection -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#has_collection">
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Museum_Type"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Collection"/>
+        <rdfs:comment>Each museum type has a collection.</rdfs:comment>
+        <rdfs:label>has_collection</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#has_currency -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#has_currency">
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Entrance_Fee"/>
+        <rdfs:range rdf:resource="http://www.fao.org/countryprofiles/geoinfo/geopolitical/resource/Territory"/>
+        <rdfs:comment>An entrance fee has a different currency depending on the territory.</rdfs:comment>
+        <rdfs:label>has_currency</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#has_department -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#has_department">
+        <owl:inverseOf rdf:resource="https://github.com/damares/moma#holds"/>
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Collection"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Department"/>
+        <rdfs:comment>Each collection belongs to a museum department.</rdfs:comment>
+        <rdfs:label>has_department</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#has_fee -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#has_fee">
+        <owl:inverseOf rdf:resource="https://github.com/damares/moma#setup_by"/>
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Museum"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Entrance_Fee"/>
+        <rdfs:comment>Each museum has an entrance fee.</rdfs:comment>
+        <rdfs:label>has_fee</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#has_info_about_artist -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#has_info_about_artist">
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Weblink"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Artist"/>
+        <rdfs:comment>A weblink contains an extra information about an artist.</rdfs:comment>
+        <rdfs:label>has_info_about_artist</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#has_info_about_artwork -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#has_info_about_artwork">
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Weblink"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Artwork"/>
+        <rdfs:comment>A weblink of a web page gives more information about an artwork.</rdfs:comment>
+        <rdfs:label>has_info_about_artwork</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#has_location -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#has_location">
+        <owl:inverseOf rdf:resource="https://github.com/damares/moma#holds_musseum"/>
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Museum"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#City"/>
+        <rdfs:comment>Each museum is located in a city.</rdfs:comment>
+        <rdfs:label>has_location</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#has_medium -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#has_medium">
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Artwork_Category"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Medium"/>
+        <rdfs:comment>Each artwork category has a specific medium for the creation  of the artwork.</rdfs:comment>
+        <rdfs:label>has_medium</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#has_movement -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#has_movement">
+        <owl:inverseOf rdf:resource="https://github.com/damares/moma#includes"/>
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Artist"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Movement"/>
+        <rdfs:comment>An artist belongs to a movement.</rdfs:comment>
+        <rdfs:label>has_movement</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#has_nationality -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#has_nationality">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:range rdf:resource="http://www.fao.org/countryprofiles/geoinfo/geopolitical/resource/Territory"/>
+        <rdfs:comment>A person has a nationality.</rdfs:comment>
+        <rdfs:label>has_nationality</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#has_occupation -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#has_occupation">
+        <owl:inverseOf rdf:resource="https://github.com/damares/moma#is_the_job_of"/>
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Artist"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Artist_Occupation"/>
+        <rdfs:comment>An artist has a job occupation.</rdfs:comment>
+        <rdfs:label>has_occupation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#has_size -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#has_size">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://github.com/damares/moma#is_related_to"/>
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Artwork_Category"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Size"/>
+        <rdfs:comment>Each artwork belongs to an artwork category and has a size (measured in seconds or centimeters).</rdfs:comment>
+        <rdfs:label>has_size</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#has_type -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#has_type">
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Museum"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Museum_Type"/>
+        <rdfs:comment>A museum has a museum type.</rdfs:comment>
+        <rdfs:label>has_type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#holds -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#holds">
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Department"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Collection"/>
+        <rdfs:comment>A department holds a collection of artworks.</rdfs:comment>
+        <rdfs:label>holds</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#holds_musseum -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#holds_musseum">
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#City"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Museum"/>
+        <rdfs:comment>A city holds a museum.</rdfs:comment>
+        <rdfs:label>holds_museum</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#includes -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#includes">
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Movement"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Artist"/>
+        <rdfs:comment>A movement includes artists.</rdfs:comment>
+        <rdfs:label>includes</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#is_acquired_by -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#is_acquired_by">
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Acquirement"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Department"/>
+        <rdfs:comment>An acquirement is made by a department.</rdfs:comment>
+        <rdfs:label>is_acquired_by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#is_acquired_in -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#is_acquired_in">
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Artwork"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Acquirement"/>
+        <rdfs:comment>An artwork is obtained by an acquirement.</rdfs:comment>
+        <rdfs:label>is_acquired_in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#is_birthplace_of -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#is_birthplace_of">
+        <rdfs:domain rdf:resource="http://www.fao.org/countryprofiles/geoinfo/geopolitical/resource/Territory"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:comment>A territory is a birthplace of an artist.</rdfs:comment>
+        <rdfs:label>is_birthplace_of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#is_related_to -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#is_related_to">
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Size"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Artwork_Category"/>
+        <rdfs:comment>A size is related to an artwork category.</rdfs:comment>
+        <rdfs:label>is_related_to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#is_the_job_of -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#is_the_job_of">
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Artist_Occupation"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Artist"/>
+        <rdfs:comment>A job occupation is the job an artist.</rdfs:comment>
+        <rdfs:label>is_the_job_of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#located_in -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#located_in">
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#City"/>
+        <rdfs:range rdf:resource="http://www.fao.org/countryprofiles/geoinfo/geopolitical/resource/Territory"/>
+        <rdfs:comment>A city is located in a territory.</rdfs:comment>
+        <rdfs:label>located_in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#occurs_in -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#occurs_in">
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Movement"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Era"/>
+        <rdfs:comment>A movement occurs in an era.</rdfs:comment>
+        <rdfs:label>occurs_in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#results_from -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#results_from">
+        <owl:inverseOf rdf:resource="https://github.com/damares/moma#results_in"/>
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Artwork"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Artist_Occupation"/>
+        <rdfs:comment>An artwork results from an artist occupation.</rdfs:comment>
+        <rdfs:label>results_from</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#results_in -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#results_in">
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Artist_Occupation"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Artwork"/>
+        <rdfs:comment>An artist occupation results from its artwork.</rdfs:comment>
+        <rdfs:label>results_in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#setup_by -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/damares/moma#setup_by">
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Entrance_Fee"/>
+        <rdfs:range rdf:resource="https://github.com/damares/moma#Museum"/>
+        <rdfs:comment>An entrance fee is set up by a museum.</rdfs:comment>
+        <rdfs:label>setup_by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://github.com/damares/moma#amount -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/damares/moma#amount">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Entrance_Fee"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment>Represents the amount of the entrance fee.</rdfs:comment>
+        <rdfs:label>amount</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#date_aquired -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/damares/moma#date_aquired">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Acquirement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment>Represents the date of the acquirement.</rdfs:comment>
+        <rdfs:label>date_acquired</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#has_accesion_number -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/damares/moma#has_accesion_number">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Artwork"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment>Represents the accesion number of an artwork.</rdfs:comment>
+        <rdfs:label>has_accesion_number</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#has_age -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/damares/moma#has_age">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment>Represents the age of an artist.</rdfs:comment>
+        <rdfs:label>has_age</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#has_birth_year -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/damares/moma#has_birth_year">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:range rdf:resource="https://www.w3.org/TR/owl-time/#time:year"/>
+        <rdfs:comment>Represents the birth year of an artist.</rdfs:comment>
+        <rdfs:label>has_birth_year</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#has_death_year -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/damares/moma#has_death_year">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:range rdf:resource="https://www.w3.org/TR/owl-time/#time:year"/>
+        <rdfs:comment>Represents the death year (if it exist) of an artist.</rdfs:comment>
+        <rdfs:label>has_death_year</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#has_description -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/damares/moma#has_description">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Acquirement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment>Represents a description of the acquirement.</rdfs:comment>
+        <rdfs:label>has_description</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#has_gender -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/damares/moma#has_gender">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>female</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>male</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment>Represents the gender of an artist.</rdfs:comment>
+        <rdfs:label>has_gender</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#has_title -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/damares/moma#has_title">
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Artwork"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment>Represents the title of an artwork.</rdfs:comment>
+        <rdfs:label>has_title</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/damares/moma#has_year -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/damares/moma#has_year">
+        <rdfs:domain rdf:resource="https://github.com/damares/moma#Artwork"/>
+        <rdfs:range rdf:resource="https://www.w3.org/TR/owl-time/#time:year"/>
+        <rdfs:comment>Represents the year of the creation of an artwork.</rdfs:comment>
+        <rdfs:label>has_year</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/uo#UO_0000010 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/uo#UO_0000010">
+        <owl:equivalentClass rdf:resource="https://github.com/damares/moma#Second"/>
+        <rdfs:comment>The artwork like videos are meassured in seconds. Units of Measurement Ontology is used.</rdfs:comment>
+        <rdfs:label>second_uo</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/uo#UO_0000015 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/uo#UO_0000015">
+        <owl:equivalentClass rdf:resource="https://github.com/damares/moma#Centimeter"/>
+        <rdfs:comment>Sculptures, drawings, paintings, etc. (not videos) are measured in centimeters. Units of Measurement Ontology is used.</rdfs:comment>
+        <rdfs:label>centimeter_uo</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fao.org/countryprofiles/geoinfo/geopolitical/resource/Territory -->
+
+    <owl:Class rdf:about="http://www.fao.org/countryprofiles/geoinfo/geopolitical/resource/Territory">
+        <rdfs:comment>Territory is used from the Geopolitical ontology (Food and Agriculture Organization of the United Nations). It contains information about different countries, their area, currency, etc.</rdfs:comment>
+        <rdfs:label>territory</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person">
+        <rdfs:comment>This is a class from the ontology FOAF used to describe persons.</rdfs:comment>
+        <rdfs:label>person</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/damares/moma#Acquirement -->
+
+    <owl:Class rdf:about="https://github.com/damares/moma#Acquirement">
+        <rdfs:comment>It describes how an artwork has been acquired.</rdfs:comment>
+        <rdfs:label>acquirement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/damares/moma#Artist -->
+
+    <owl:Class rdf:about="https://github.com/damares/moma#Artist">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:comment>An artist is the author of an artwork.</rdfs:comment>
+        <rdfs:label>artist</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/damares/moma#Artist_Occupation -->
+
+    <owl:Class rdf:about="https://github.com/damares/moma#Artist_Occupation">
+        <rdfs:comment>Describes the artist occupation: painter, sculpturist, photographer, etc.</rdfs:comment>
+        <rdfs:label>artist_occupation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/damares/moma#Artwork -->
+
+    <owl:Class rdf:about="https://github.com/damares/moma#Artwork">
+        <rdfs:comment>This is a class for an artwork.</rdfs:comment>
+        <rdfs:label>artwork</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/damares/moma#Artwork_Category -->
+
+    <owl:Class rdf:about="https://github.com/damares/moma#Artwork_Category">
+        <rdfs:comment>This class describes the category of an artwork (sculpture, painting, drawing, etc).</rdfs:comment>
+        <rdfs:label>artwork_category</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/damares/moma#Centimeter -->
+
+    <owl:Class rdf:about="https://github.com/damares/moma#Centimeter">
+        <rdfs:subClassOf rdf:resource="https://github.com/damares/moma#Size"/>
+        <owl:disjointWith rdf:resource="https://github.com/damares/moma#Second"/>
+        <rdfs:comment>Sculptures, drawings, paintings, etc. (not videos) are measured in centimeters. Units of Measurement Ontology is used</rdfs:comment>
+        <rdfs:label>centimeter</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/damares/moma#City -->
+
+    <owl:Class rdf:about="https://github.com/damares/moma#City">
+        <rdfs:comment>This class is used to represent cities.</rdfs:comment>
+        <rdfs:label>city</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/damares/moma#Collection -->
+
+    <owl:Class rdf:about="https://github.com/damares/moma#Collection">
+        <rdfs:comment>This class describes a collection created by a museum.</rdfs:comment>
+        <rdfs:label>collection</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/damares/moma#Department -->
+
+    <owl:Class rdf:about="https://github.com/damares/moma#Department">
+        <rdfs:comment>This class describes different departments in a museum.</rdfs:comment>
+        <rdfs:label>department</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/damares/moma#Entrance_Fee -->
+
+    <owl:Class rdf:about="https://github.com/damares/moma#Entrance_Fee">
+        <rdfs:comment>This class describes the entrance fee of a museum.</rdfs:comment>
+        <rdfs:label>entrance_fee</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/damares/moma#Era -->
+
+    <owl:Class rdf:about="https://github.com/damares/moma#Era">
+        <rdfs:comment>This class describes a different era which an artwork or an artist belongs.</rdfs:comment>
+        <rdfs:label>era</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/damares/moma#Medium -->
+
+    <owl:Class rdf:about="https://github.com/damares/moma#Medium">
+        <rdfs:comment>This class describes what medium is used to create an artwork.</rdfs:comment>
+        <rdfs:label>medium</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/damares/moma#Movement -->
+
+    <owl:Class rdf:about="https://github.com/damares/moma#Movement">
+        <rdfs:comment>This class describes a different movement which an artwork or an artist belongs.</rdfs:comment>
+        <rdfs:label>movement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/damares/moma#Museum -->
+
+    <owl:Class rdf:about="https://github.com/damares/moma#Museum">
+        <rdfs:comment>This class describes a museum.</rdfs:comment>
+        <rdfs:label>museum</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/damares/moma#Museum_Type -->
+
+    <owl:Class rdf:about="https://github.com/damares/moma#Museum_Type">
+        <rdfs:comment>This class describes the different type of a museum.</rdfs:comment>
+        <rdfs:label>museum_type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/damares/moma#Second -->
+
+    <owl:Class rdf:about="https://github.com/damares/moma#Second">
+        <rdfs:subClassOf rdf:resource="https://github.com/damares/moma#Size"/>
+        <rdfs:comment>The artwork like videos are meassured in seconds. Units of Measurement Ontology is used.</rdfs:comment>
+        <rdfs:label>second</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/damares/moma#Size -->
+
+    <owl:Class rdf:about="https://github.com/damares/moma#Size">
+        <rdfs:comment>This class describes the size of an artwork.</rdfs:comment>
+        <rdfs:label>size</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/damares/moma#Weblink -->
+
+    <owl:Class rdf:about="https://github.com/damares/moma#Weblink">
+        <rdfs:comment>This class represent a link to an artist or an artwork.</rdfs:comment>
+        <rdfs:label>weblink</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+
